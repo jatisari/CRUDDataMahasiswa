@@ -28,7 +28,7 @@ public class MahasiswaActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private String action_flag="add";
     private String refreshFlag="0";
-    private static final String TAG="AddEditActivity";
+    private static final String TAG="MahsiswaActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

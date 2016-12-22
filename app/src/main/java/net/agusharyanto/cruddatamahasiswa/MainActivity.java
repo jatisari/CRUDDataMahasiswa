@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, MahasiswaActivity.class);
+                // intent.putExtra("action", REQUEST_CODE_ADD);
+                startActivityForResult(intent, REQUEST_CODE_ADD);
+
             }
         });
 
@@ -68,15 +70,51 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         Mahasiswa mahasiswa = rvAdapter.getItem(position);
-                        Toast.makeText(context, "Name :" + mahasiswa.getNama(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "Name :" + mahasiswa.getNama(), Toast.LENGTH_SHORT).show();
                         // selectedPosition = position;
-                        //Intent intent = new Intent(MainActivity.this, MahasiswaActivity.class);
-                        //intent.putExtra("mahasiswa", mahasiswa);
-                        //startActivityForResult(intent, REQUEST_CODE_EDIT);
+                        Intent intent = new Intent(MainActivity.this, MahasiswaActivity.class);
+                        intent.putExtra("mahasiswa", mahasiswa);
+                        startActivityForResult(intent, REQUEST_CODE_EDIT);
                     }
                 })
         );
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_CODE_ADD: {
+                if (resultCode == RESULT_OK && null != data) {
+                    if (data.getStringExtra("refreshflag").equals("1")) {
+                        mahasiswaList = databaseHelper.getDataMahasiswa(db);
+                        gambarDatakeRecyclerView();
+                    }
+                }
+                break;
+            }
+            case REQUEST_CODE_EDIT: {
+                if (resultCode == RESULT_OK && null != data) {
+                    if (data.getStringExtra("refreshflag").equals("1")) {
+                        mahasiswaList = databaseHelper.getDataMahasiswa(db);
+                        gambarDatakeRecyclerView();
+                    }
+                }
+                break;
+            }
+        }
+    }
+    @Override
+    public void onDestroy(){
+        db.close();
+        databaseHelper.close();
+        super.onDestroy();
+    }
+
+
+
+
+
     private List<Mahasiswa> mahasiswaList;
     // This method creates an ArrayList that has three Fruit objects
     private void initializeData(){

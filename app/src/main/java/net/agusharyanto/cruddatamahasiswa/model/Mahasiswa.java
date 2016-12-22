@@ -1,10 +1,12 @@
 package net.agusharyanto.cruddatamahasiswa.model;
 
+import java.io.Serializable;
+
 /**
  * Created by agus on 12/22/16.
  */
 
-public class Mahasiswa {
+public class Mahasiswa implements Serializable{
 
     private String id="";
     private String nim="";
