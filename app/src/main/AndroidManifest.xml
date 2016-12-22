@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MahasiswaActivity"
+            android:name=".MahasiswaActivityServer"
             android:label="@string/title_activity_mahasiswa"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainActivityServer"
             android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="net.agusharyanto.cruddatamahasiswa.MahasiswaActivity" />
+            android:value="net.agusharyanto.cruddatamahasiswa.MahasiswaActivityServer" />
         </activity>
     </application>
 
