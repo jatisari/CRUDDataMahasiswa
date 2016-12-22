@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CRUD Data Mahasiswa</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="nim">NIM</string>
+    <string name="nama">Nama</string>
+    <string name="jurusan">Jurusan</string>
+    <string name="title_activity_mahasiswa">MahasiswaActivity</string>
+</resources>
