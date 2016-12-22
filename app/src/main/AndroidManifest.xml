@@ -21,7 +21,12 @@
         <activity
             android:name=".MahasiswaActivity"
             android:label="@string/title_activity_mahasiswa"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="net.agusharyanto.cruddatamahasiswa.MahasiswaActivity" />
+        </activity>
     </application>
 
 </manifest>
