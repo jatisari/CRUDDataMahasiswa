@@ -13,8 +13,39 @@
     tools:context="net.agusharyanto.cruddatamahasiswa.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/header"
+        android:background="@color/colorAccent"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nim"
+            android:id="@+id/textViewRowNim" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nama"
+            android:id="@+id/textViewRowNama"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textViewRowNim"
+            android:layout_toEndOf="@+id/textViewRowNim" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jurusan"
+            android:id="@+id/textViewRowJurusan"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
+        android:layout_below="@+id/header"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
